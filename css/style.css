@@ -1,0 +1,618 @@
+/* ROOT */
+:root{
+    --first-color: rgb(28, 28, 49) ;
+}
+
+body{
+    margin: 0px;
+    padding: 0px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
+}
+
+/* main conteiner */
+.main-container{
+    width: 100%;
+}
+
+
+nav{
+    display: flex;
+    width: 90%;
+    align-content: center;
+    justify-content: space-between;
+    padding-top: 20px;
+    z-index: 1;
+}
+
+.favorite-header{
+    background-color: rgb(32, 30, 30);
+    width: 100%;
+    padding: auto;
+    
+}
+
+.favorite-nav{
+    justify-self: center;
+    margin: 0 auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+nav img{
+    width: 150px;
+}
+
+nav button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    /* padding-left: 15px;
+    padding-right: 15px; */
+    padding: 10px;
+    
+
+}
+
+nav button:hover{
+    background-color: rgba(255, 255, 255, 0.2); /* Blanco con opacidad */
+    border-radius: 20px;
+
+}
+
+nav a{
+    text-decoration: none;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 18px;
+    padding: 0px, 3px,0px,3px;
+   
+}
+
+nav .link-logo {
+   display: flex;
+   align-items: center;
+}
+
+nav a i{
+    font-size: 15px;
+}
+
+
+
+/* Estilo del hero */
+.hero {
+    background-image: url('https://cdn.pixabay.com/index/2023/09/08/04-59-00-104_1920x550.jpg'); /* Reemplaza con la ruta de tu imagen */
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 400px; /* Tamaño del hero, 100% de la altura de la ventana */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: white; /* Color del texto */
+    font-size: 2rem; /* Tamaño del texto */
+    position: relative; /* Importante para el contenido interno */
+  }
+  
+  /* Aplicar opacidad al background-image */
+  .hero::before {
+    content: "";
+    background-color: rgba(4, 1, 17, 0.5); /* Color de fondo con opacidad */
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+     /* Coloca el fondo con opacidad detrás del contenido */
+  }
+  
+  /* Estilo del contenido interno */
+  .hero-content {
+    z-index: 1; /* Coloca el contenido por encima del fondo con opacidad */
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-content h1{
+    font-size: xx-large;
+    margin: 10px, 0px 10px 0px;
+    
+  }
+
+  .hero-content p{
+    font-size: large;
+  }
+  
+  /* Estilos al formulario */
+  .hero-content form{
+    border: solid 1px #ccc;
+    width: 600px;
+    height:40px;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    transition: all 0.1s ease-in-out;
+    overflow: hidden;
+    gap: 0;
+}
+
+.hero-content form:focus-within{
+    border: solid 1px rgb(124, 123, 123);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+
+}
+
+.hero-content form .text-info{
+    padding-right: 10px;
+}
+
+.hero-content form input[type="text"]{
+    border: none;
+    outline: none;
+    height: 100%;
+    padding-left: 10px;
+    flex: 1;
+    font-size: 15px;
+}
+
+.hero-content form .action{
+    height: 100%;
+    border: none;
+    cursor: pointer;
+}
+
+.hero-content form  button{
+    padding: 18px;
+    border: none;
+    cursor: pointer;
+   background-color: white;
+    
+}
+
+.hero-content form  button i{
+    font-size: 15px;
+    color: rgb(117, 112, 112);
+    transition: color 0.3s ease-in-out;
+}
+
+.hero-content form  button i:hover{
+    font-size: 15px;
+    color: black;
+}
+
+/* En caso de error de submit */
+.hero-content .error{
+    color: red;
+    font-size: 15px;
+
+
+}
+
+/* Estilos de los resultados */
+.results{
+    width: 95%;
+    margin: 0 auto;
+    display: grid;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 10px;   
+}
+
+/* Estilos de cada card */
+
+.card{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;  
+}
+
+.card:hover .text,
+.card:hover .favorites{
+    display: flex;
+}
+
+
+
+.card a{
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+}
+
+.card .text{
+    /* display: flex;  */
+    display: none;
+    color: white;
+    position: absolute;
+    bottom: 0; /* Lo colocamos en la parte inferior */
+    /* width: 100%; */
+    justify-content: center;
+    align-items: center;
+    border-radius: 40px;
+    background: rgba(0, 0, 0, 0.5);
+    margin: 5px;
+}
+
+
+.favorites{
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 8px;
+    margin-top: 8px; 
+    z-index: 1;
+}
+
+ .favorites button{
+    background: rgba(53, 48, 48,0.5);
+    padding: 8px;
+    border: solid 1px rgb(238, 233, 233);
+    border-radius: 6px;
+    color:white;
+    cursor: pointer;
+    z-index: 1 !important;;
+}
+
+.favorites button:hover, .favorites-selected{
+    background-color:white !important;
+    color:black !important;
+}
+    
+    
+
+.info{
+    display: flex;
+    flex-direction: column;
+    font-size: xx-small;
+    margin: 5px;
+}
+
+.info .author{
+    font-weight: bold;
+}
+.info .aditional{
+    font-size: 12px !important;
+}
+
+.info p i{
+    font-size: xx-small;
+}
+
+.card .text img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin:5px 0px 5px 5px;
+}
+
+.card .text p{
+    /* background: rgba(0, 0, 0, 0.5); Fondo semi-transparente para que el texto sea legible */
+    margin-left: 2px;
+    margin-right: 2px;
+    font-size: small;
+    margin:2px;
+}
+
+.large{
+    grid-row-start: 2 span;
+}
+
+.preview-photo{ 
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+
+
+.card:hover .preview-photo{
+    transform: scale(1.2);
+  }
+/* Estilos del modal  */
+
+.container-modal{
+    display: none;    
+    background-color: rgba(0, 0,0,0.4) ;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;  
+}
+
+.active{
+    display: flex;
+}
+
+.container-modal .close{
+    margin-bottom: 10px;
+    margin-top: 0;
+    align-self: self-end;
+    
+    
+}
+
+.container-modal .close button{
+    background: none;
+    border: none;
+    font-size:30px;
+    color:rgb(240, 44, 44);
+    padding: 0;
+    position: absolute;
+    margin-left: -25px;
+    margin-top: -8px;
+    cursor: pointer;
+    
+}
+
+.container-modal .modal{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    max-height: 95%;
+    background-color: white;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.container-modal .modal .modal-header{
+    display: flex;
+    height: 100%;
+    height: 50px;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+   
+}
+
+.container-modal .modal .modal-header .info-author {
+    display: flex;
+    align-items: center;
+    color: rgb(15, 149, 211);
+}
+
+.container-modal .modal .modal-header .info-author img{
+    width: 49px;
+    height: 49px;
+    border-radius: 50%;
+}
+.container-modal .modal .modal-header .info-author p{
+    padding-left:10px;
+    margin: 0;
+}
+
+.container-modal .modal .modal-header .actions button{
+    padding: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.container-modal .modal .modal-header #modal-favorites{
+    background-color: white;
+    border: solid 1px rgb(240, 44, 44);
+    color:rgb(240, 44, 44) ;
+}
+.container-modal .modal .modal-header #modal-favorites:hover{
+    background-color: rgb(240, 44, 44);
+    border: solid 1px white;
+    color:white ;
+}
+
+.modal-favorites-active{
+    background-color: rgb(240, 44, 44) !important;
+    border: solid 1px white !important;
+    color:white !important;
+}
+
+.container-modal .modal .modal-header .download{
+    background-color: rgb(60, 177, 60);
+    border: solid 1px rgb(60, 177, 60);
+    color:white ;
+}
+
+.container-modal .modal .modal-header .download:hover{
+    background-color: rgb(54, 148, 54);
+
+}
+
+.container-modal .modal .modal-body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100% !important;
+    margin-top: 2px;
+    margin-left: 10px;
+    margin-right:10px; 
+    align-items: center;
+}
+
+.container-modal .modal .modal-body .img-modal-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 95% !important;
+    width: 100% !important;;
+    
+
+}
+
+.container-modal .modal .modal-body .img-modal-container img{
+    object-fit: cover;
+    align-self: center;
+    max-width:85% !important;
+    max-height:400px !important;
+    
+}
+
+.container-modal .modal .modal-body .modal-info{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.container-modal .modal .modal-body .modal-info p{
+    background-color: #ccc;
+    padding: 10px;
+    color: rgb(100, 97, 97);
+    border-radius: 15px;
+    text-align: center;
+    
+}
+
+.container-modal .modal .modal-header .actions  a{
+    text-decoration: none;
+    color: white;
+}
+
+/* Estilos de la paginación */
+.pagination-container{
+    display: flex;
+    margin: 10px;
+    margin-bottom: 25px;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagination-container .pagination{
+    display: flex;
+    max-width: 95%;
+    border: solid 1px #ccc;
+    border-radius: 5px;
+}
+
+.pagination-container .pagination  a{
+    padding: 10px;
+    border-right: solid  1px #ccc;
+    border-left: solid  1px #ccc;
+    text-decoration: none;
+    color: #918f8f;
+}
+
+.pagination-container .pagination  a:hover,
+.selected{
+    background-color: #918f8f;
+    border-right: solid  1px #918f8f;
+    border-left: solid  1px #918f8f;
+    color: white !important;
+
+}
+
+
+
+/* MEDIA QUERIES */
+@media (max-width: 930px) {
+    .results{
+        grid-template-columns: 1fr 1fr 1fr ;
+          
+    }
+    
+}
+@media (max-width: 690px) {
+    .hero-content form{
+        width: 90%;
+    }
+    .results{
+        grid-template-columns: 1fr 1fr ;
+          
+    }
+    
+}
+@media (max-width: 640px) {
+    .hero{
+        background-image: url('https://cdn.pixabay.com/index/2023/09/08/04-59-00-104_640.jpg');
+        
+    }
+
+    .container-modal .modal .modal-header .actions  span{
+        visibility: hidden;
+        position: absolute;
+        
+    }
+    
+}
+
+@media (max-width: 430px) {
+    nav img{
+        width: 100px;
+    }
+    .results{
+        grid-template-columns: 1fr;
+          
+    }
+    .card .text,
+     .favorites{
+        display: flex;
+    }
+
+    .container-modal .modal .modal-body .modal-info p{
+        font-size: small; 
+    }
+
+    .container-modal .modal .modal-header{
+        padding-bottom: 6px;
+        margin-top: 10px;
+       
+    }
+
+    .container-modal .modal .modal-header .actions button{
+        position: relative;
+        
+    }
+
+    
+
+    .container-modal .modal{
+        max-height: 70%;
+        width: 95%;
+        
+    }
+
+    .container-modal .modal .modal-body .img-modal-container img{
+        max-width:95% !important;
+    
+        
+    }
+
+    .container-modal .modal .modal-body .modal-info p{
+        background-color: #ccc;
+        padding: 10px;
+        color: rgb(100, 97, 97);
+        border-radius: 15px;
+        text-align: center;
+        
+    }
+    
+    
+}
+
+@media (min-width: 1400px) { 
+    .container-modal .modal{
+        width: 50%;
+
+    }
+    .container-modal .modal .modal-body .img-modal-container img{
+        height: 100%;
+        
+    
+        
+    }
+
+}
+  
